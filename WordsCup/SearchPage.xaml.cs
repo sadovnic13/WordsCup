@@ -33,24 +33,22 @@ namespace WordsCup
                 link.Attributes.Remove("href");
             }
 
-            var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
-
-            // Выбрать все теги h2 и p внутри bodyContent
+            var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']")
             var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
 
             // Объединить HTML всех выбранных узлов в одну строку
             var htmlContent = string.Join("\n", nodes.Select(node => node.OuterHtml));
 
             string html = $@"
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset='UTF-8'>
-        </head>
-        <body>
-            {htmlContent}
-        </body>
-        </html>";
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset='UTF-8'>
+                </head>
+                <body>
+                    {htmlContent}
+                </body>
+                </html>";
 
             TB.NavigateToString(html);
         }
