@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "T4Qh+8xWI52XFUj+6eteONK8lTpXDFHmHXqPCudYcebo3HULpYWSQXvptHaO6btF8BTMOOlUJy13IihEQ+pkUg==",
+  "success": true,
+  "projectFilePath": "D:\\German\\C#\\Projects\\WPF\\WordsCup\\WordsCup\\WordsCup.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\htmlagilitypack\\1.11.54\\htmlagilitypack.1.11.54.nupkg.sha512"
+  ],
+  "logs": []
+}
