@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="SearchPage" Height="450" Width="800" Initialized="Window_Initialized">
     <Grid>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="392" Width="689"/>
+        <Label x:Name="labell" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="60"/>
+        <Button Content="Reloud" HorizontalAlignment="Left" Margin="454,8,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="261"/>
+        <WebBrowser x:Name="TB" Margin="0,63,0,0"/>
 
     </Grid>
 </Window>

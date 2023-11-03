@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,26 @@ namespace WordsCup
         public SearchPage()
         {
             InitializeComponent();
+            
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            label.Content = GiverText.GetHeadlines;
+            foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
+            {
+                link.Attributes.Remove("href");
+            }
+
+            string htmlCode = GlobalValues.doc.DocumentNode.OuterHtml;
+            
+            TB.NavigateToString(htmlCode);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WordSelectPage sP = new WordSelectPage();
+            sP.Show();
+            this.Close();
         }
     }
 }
