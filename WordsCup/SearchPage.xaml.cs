@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,10 +27,9 @@ namespace WordsCup
             
         }
 
-        async private void ViewTextBrowser()
+        private void ViewTextBrowser()
         {
-            await GlobalValues.GeneratePage();
-            //GlobalValues.GeneratePage();
+            GlobalValues.GeneratePage();
             foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
             {
                 link.Attributes.Remove("href");
@@ -59,6 +59,7 @@ namespace WordsCup
         {
             ViewTextBrowser();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WordSelectPage sP = new WordSelectPage();
@@ -66,16 +67,9 @@ namespace WordsCup
             this.Close();
         }
 
-        string text = "fff";
-        private void TB_MouseUp(object sender, MouseButtonEventArgs e)
-        {    
-            MessageBox.Show(text.ToString());
-        }
-
         private void MoreTextButton(object sender, RoutedEventArgs e)
         {
-            ViewTextBrowser();     
-            
+            ViewTextBrowser();
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using HtmlAgilityPack;
 
 namespace WordsCup
@@ -15,12 +17,17 @@ namespace WordsCup
         
         public static string userDefinedText { get; set; }
 
-        public static async Task GeneratePage()
+        public static void GeneratePage()
         {
-            await Task.Run(() =>
-            {
-                GlobalValues.doc = new HtmlWeb().Load(url);
-            });
+                try
+                {
+                    GlobalValues.doc = new HtmlWeb().Load(url);
+                }
+                catch (WebException e)
+                {
+
+                    MessageBox.Show(e.Message);
+                }
         }
 
     }
