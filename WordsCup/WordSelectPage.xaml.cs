@@ -24,8 +24,6 @@ namespace WordsCup
             public WordSelectPage()
             {
                 InitializeComponent();
-                var url = "https://ru.wikipedia.org/wiki/Special:Random";
-                GlobalValues.doc = new HtmlWeb().Load(url);
             }
 
         private void Button_Click(object sender, RoutedEventArgs e)

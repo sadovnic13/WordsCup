@@ -8,7 +8,8 @@
         Title="SearchPage" Height="450" Width="800" Initialized="Window_Initialized">
     <Grid>
         <Button Content="Reloud" HorizontalAlignment="Right" Margin="0,25,10,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="100"/>
-        <WebBrowser x:Name="TB" Margin="0,0,150,0"/>
+        <WebBrowser x:Name="TB" Margin="0,0,150,0" MouseUp="TB_MouseUp"/>
+        <Button Content="More" HorizontalAlignment="Right" Margin="0,80,10,0" VerticalAlignment="Top" Click="MoreTextButton" Height="38" Width="100"/>
 
     </Grid>
 </Window>

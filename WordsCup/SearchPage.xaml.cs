@@ -26,8 +26,9 @@ namespace WordsCup
             
         }
 
-        private void Window_Initialized(object sender, EventArgs e)
+        private void ViewTextBrowser()
         {
+            GlobalValues.GeneratePage();
             foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
             {
                 link.Attributes.Remove("href");
@@ -53,6 +54,11 @@ namespace WordsCup
             TB.NavigateToString(html);
         }
 
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            ViewTextBrowser();
+        }
+
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,6 +66,21 @@ namespace WordsCup
             WordSelectPage sP = new WordSelectPage();
             sP.Show();
             this.Close();
+        }
+
+        string text = "fff";
+        private void TB_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+    //        var text = this.TB.Document.InvokeScript("eval", new object[] {
+    //"document.activeElement.contentWindow.document.selection.createRange().text" });
+    
+            MessageBox.Show(text.ToString());
+        }
+
+        private void MoreTextButton(object sender, RoutedEventArgs e)
+        {
+            ViewTextBrowser();     
+            
         }
     }
 }
