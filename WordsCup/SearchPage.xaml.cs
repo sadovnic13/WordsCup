@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -71,7 +72,25 @@ namespace WordsCup
 
         private async void MoreTextButton(object sender, RoutedEventArgs e)
         {
-            await ViewTextBrowser();
+            BlurEffect bE = new BlurEffect();
+            bE.Radius = 10;
+            Effect = bE;  
+
+            DownloadAnimation dialog = new DownloadAnimation();
+
+            dialog.Owner = this;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+            this.IsEnabled = false;
+            dialog.Show();
+            await ViewTextBrowser();            
+
+            dialog.Close();
+
+            IsEnabled = true;
+            bE.Radius = 0;
+            Effect = bE;
+
         }
     }
 }
