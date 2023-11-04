@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="WordSelectPage" Height="450" Width="800">
     <Grid Background="#FF028B72">
-        <Label Content="Введи слово:" HorizontalAlignment="Left" Margin="160,148,0,0" VerticalAlignment="Top" FontSize="17"/>
-        <TextBox x:Name="UserWord" HorizontalAlignment="Left" Margin="306,156,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="274" Height="25"/>
-        <Button Height="50" Margin="282,70,244,315" Click="Button_Click">
+        <Label Content="Выбери:" HorizontalAlignment="Left" Margin="174,153,0,0" VerticalAlignment="Top" FontSize="17"/>
+        <Button Height="50" Margin="256,211,270,174" Click="Button_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2" CornerRadius="15">
@@ -19,6 +18,7 @@
             </Button.Template>
             Поехали
         </Button>
+        <ComboBox HorizontalAlignment="Left" Margin="285,158,0,0" VerticalAlignment="Top" Width="237" Height="27"/>
 
 
     </Grid>

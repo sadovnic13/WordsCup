@@ -30,8 +30,6 @@ namespace WordsCup
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GlobalValues.userDefinedText = UserWord.Text;
-
             SearchPage sP = new SearchPage();
             sP.Show();
             this.Close();

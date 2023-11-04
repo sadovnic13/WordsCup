@@ -33,7 +33,7 @@ namespace WordsCup
                 link.Attributes.Remove("href");
             }
 
-            var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']")
+            var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
             var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
 
             // Объединить HTML всех выбранных узлов в одну строку
