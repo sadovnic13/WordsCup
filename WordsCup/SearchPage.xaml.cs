@@ -24,22 +24,25 @@ namespace WordsCup
         public SearchPage()
         {
             InitializeComponent();
-            
+
         }
 
-        private void ViewTextBrowser()
+        private async Task ViewTextBrowser()
         {
-            GlobalValues.GeneratePage();
-            foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
+            var htmlContent = await Task.Run(() =>
             {
-                link.Attributes.Remove("href");
-            }
+                GlobalValues.GeneratePage();
+                foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
+                {
+                    link.Attributes.Remove("href");
+                }
 
-            var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
-            var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
+                var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
+                var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
 
-            // Объединить HTML всех выбранных узлов в одну строку
-            var htmlContent = string.Join("\n", nodes.Select(node => node.OuterHtml));
+                // Объединить HTML всех выбранных узлов в одну строку
+                return string.Join("\n", nodes.Select(node => node.OuterHtml));
+            });
 
             string html = $@"
                 <!DOCTYPE html>
@@ -51,25 +54,24 @@ namespace WordsCup
                     {htmlContent}
                 </body>
                 </html>";
-
             TB.NavigateToString(html);
         }
 
-        private void Window_Initialized(object sender, EventArgs e)
+        private async void Window_Initialized(object sender, EventArgs e)
         {
-            ViewTextBrowser();
+            await ViewTextBrowser();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WordSelectPage sP = new WordSelectPage();
-            sP.Show ();            
+            sP.Show();
             this.Close();
         }
 
-        private void MoreTextButton(object sender, RoutedEventArgs e)
+        private async void MoreTextButton(object sender, RoutedEventArgs e)
         {
-            ViewTextBrowser();
+            await ViewTextBrowser();
         }
     }
 }

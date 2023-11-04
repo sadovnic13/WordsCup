@@ -29,7 +29,7 @@ namespace WordsCup
         }
 
         BlurEffect bE = new BlurEffect();
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             bE.Radius = 10;
             Effect = bE;
@@ -40,9 +40,10 @@ namespace WordsCup
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.Show();
 
-
             SearchPage sP = new SearchPage();
-            Thread.Sleep(3000);
+
+            await Task.Delay(3000);
+
             sP.Show();
             this.Close();
         }

@@ -25,7 +25,6 @@ namespace WordsCup
                 }
                 catch (WebException e)
                 {
-
                     MessageBox.Show(e.Message);
                 }
         }

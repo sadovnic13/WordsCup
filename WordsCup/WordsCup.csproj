@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="CatRound.gif" />
-    <None Remove="icons8-загрузка-80.png" />
+    <None Remove="Images\do.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="CatRound.gif" />
-    <Resource Include="icons8-загрузка-80.png" />
+    <Resource Include="Images\do.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

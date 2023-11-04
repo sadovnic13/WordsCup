@@ -6,38 +6,11 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
-        ResizeMode="NoResize" WindowStyle="None"  Title="DownloadAnimation" Height="70" Width="70" 
+        ResizeMode="NoResize" WindowStyle="None"  Title="DownloadAnimation" Height="120" Width="120" 
         AllowsTransparency="True"
         Background="Transparent">
     <Grid>
-        <!--<Image Source="/icons8-загрузка-80.png" >
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="/icons8-загрузка-80.png"/>
-            </Image.OpacityMask>
-        </Image>-->
-        <!--<MediaElement RenderTransformOrigin="0.475, 0.475" Source="/CatRound.gif" />-->
-        <!--<Image Name="imgCircle" Visibility="Visible" gif:ImageBehavior.AnimatedSource=""/>-->
-        <!--<Image Name="imgCircle" Visibility="Visible" gif:ImageBehavior.AnimatedSource="/CatRound.gif"/>-->
-        <fa:ImageAwesome Source="/icons8-загрузка-80.png" Spin="True" Height="70" Width="70" />
-        <!--<Image Source="/icons8-загрузка-80.png"
-       Height="50" Width="50">
-            <Image.RenderTransform>
-                <RotateTransform x:Name="rotate"
-                         CenterX="25"
-                         CenterY="25"/>
-            </Image.RenderTransform>
-            <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <DoubleAnimation Storyboard.TargetName="rotate"
-                                     Storyboard.TargetProperty="Angle"
-                                     By="360" Duration="0:0:1"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Image.Triggers>
-        </Image>-->
+        <fa:ImageAwesome Source="pack://application:,,,/Images/do.png" Spin="True" Height="120" Width="120" />        
     </Grid>
 </Window>
  
