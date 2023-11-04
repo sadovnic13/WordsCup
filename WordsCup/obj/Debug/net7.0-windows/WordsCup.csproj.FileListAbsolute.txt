@@ -23,3 +23,8 @@ D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\WordSelectP
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\SearchPage.baml
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\WordSelectPage.baml
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\WordsCup.csproj.CopyComplete
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\DownloadAnimation.g.cs
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\DownloadAnimation.baml
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\WpfAnimatedGif.dll
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\XamlAnimatedGif.dll
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\FontAwesome.WPF.dll
