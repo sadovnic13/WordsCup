@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize" WindowStyle="None"  Title="DownloadAnimation" Height="120" Width="120" 
         AllowsTransparency="True"
-        Background="Transparent">
+        Background="{x:Null}">
     <Grid>
         <fa:ImageAwesome Source="pack://application:,,,/Images/do.png" Spin="True" Height="120" Width="120" />        
     </Grid>

@@ -25,7 +25,13 @@ namespace WordsCup
         public SearchPage()
         {
             InitializeComponent();
+        }
 
+        public static async Task<SearchPage> CreateAsync()
+        {
+            SearchPage sP = new SearchPage();
+            await sP.ViewTextBrowser();
+            return sP;
         }
 
         private async Task ViewTextBrowser()
@@ -58,11 +64,6 @@ namespace WordsCup
             TB.NavigateToString(html);
         }
 
-        private async void Window_Initialized(object sender, EventArgs e)
-        {
-            await ViewTextBrowser();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WordSelectPage sP = new WordSelectPage();
@@ -73,7 +74,7 @@ namespace WordsCup
         private async void MoreTextButton(object sender, RoutedEventArgs e)
         {
             BlurEffect bE = new BlurEffect();
-            bE.Radius = 10;
+            bE.Radius = 5;
             Effect = bE;  
 
             DownloadAnimation dialog = new DownloadAnimation();
@@ -82,11 +83,13 @@ namespace WordsCup
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             this.IsEnabled = false;
+            TB.Visibility = Visibility.Hidden;
             dialog.Show();
             await ViewTextBrowser();            
 
             dialog.Close();
 
+            TB.Visibility = Visibility.Visible;
             IsEnabled = true;
             bE.Radius = 0;
             Effect = bE;

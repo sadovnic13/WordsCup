@@ -32,7 +32,7 @@ namespace WordsCup
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             BlurEffect bE = new BlurEffect();
-            bE.Radius = 10;
+            bE.Radius = 5;
             Effect = bE;
 
             DownloadAnimation dialog = new DownloadAnimation();
@@ -43,9 +43,7 @@ namespace WordsCup
             this.IsEnabled = false;
             dialog.Show();
 
-            SearchPage sP = new SearchPage();
-
-            await Task.Delay(2000);
+            SearchPage sP = await SearchPage.CreateAsync();
 
             sP.Show();
             this.Close();
