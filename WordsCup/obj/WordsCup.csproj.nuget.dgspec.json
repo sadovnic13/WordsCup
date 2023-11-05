@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[1.11.54, )"
             },
+            "Unofficial.Microsoft.mshtml": {
+              "target": "Package",
+              "version": "[7.0.3300, )"
+            },
             "WpfAnimatedGif": {
               "target": "Package",
               "version": "[2.0.2, )"

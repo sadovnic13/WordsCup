@@ -22,6 +22,14 @@
           }
         }
       },
+      "Unofficial.Microsoft.mshtml/7.0.3300": {
+        "runtime": {
+          "lib/net40/Microsoft.mshtml.dll": {
+            "assemblyVersion": "7.0.3300.0",
+            "fileVersion": "7.0.3300.1"
+          }
+        }
+      },
       "WpfAnimatedGif/2.0.2": {
         "runtime": {
           "lib/netcoreapp3.0/WpfAnimatedGif.dll": {
@@ -54,6 +62,13 @@
       "sha512": "sha512-bgB79N4urc4D7hrD4R+Qk6CjPiYOfs6vfXNsmw3nCcfQEQvBQGjfAcl5k/tB1ZP1hA0d7xXs0jK8xAXV36IVUg==",
       "path": "htmlagilitypack/1.11.54",
       "hashPath": "htmlagilitypack.1.11.54.nupkg.sha512"
+    },
+    "Unofficial.Microsoft.mshtml/7.0.3300": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nv4Bn/0y8ab6f5QnEXoDX49C0U4Iz2nPgHbyg35UV+cGoFS5QkPWNwp461cOEK1O0c/u8TXQ3THP3rdEHmhjtg==",
+      "path": "unofficial.microsoft.mshtml/7.0.3300",
+      "hashPath": "unofficial.microsoft.mshtml.7.0.3300.nupkg.sha512"
     },
     "WpfAnimatedGif/2.0.2": {
       "type": "package",

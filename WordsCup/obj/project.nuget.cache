@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "yrKcDq/nN2xu84G/E5yvfvXME2vT0hjIGuWvsf2yGfTA/vv6dskB4+Sl4OcwtPb5sKZq3dgpWaId2kXRrJcCGQ==",
+  "dgSpecHash": "NyGSAYPs/hy/56qWdu4ZdLCQYm3qB4rhvlGU+todYIrF/6hNkuXV+1YzIXcUmKOakDQl6RP1p5me1dA13YOZJw==",
   "success": true,
   "projectFilePath": "D:\\German\\C#\\Projects\\WPF\\WordsCup\\WordsCup\\WordsCup.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\htmlagilitypack\\1.11.54\\htmlagilitypack.1.11.54.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\unofficial.microsoft.mshtml\\7.0.3300\\unofficial.microsoft.mshtml.7.0.3300.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\xamlanimatedgif\\2.2.0\\xamlanimatedgif.2.2.0.nupkg.sha512"
   ],
@@ -16,6 +17,16 @@
       "warningLevel": 1,
       "message": "Пакет \"FontAwesome.WPF 4.7.0.9\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "FontAwesome.WPF",
+      "targetGraphs": [
+        "net7.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Unofficial.Microsoft.mshtml 7.0.3300\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Unofficial.Microsoft.mshtml",
       "targetGraphs": [
         "net7.0-windows7.0"
       ]

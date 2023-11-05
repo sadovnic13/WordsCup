@@ -95,5 +95,17 @@ namespace WordsCup
             Effect = bE;
 
         }
+
+        private void TB_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //if (TB.Document is mshtml.HTMLDocument document)
+            //{
+            //    var range = (mshtml.IHTMLTxtRange)document.selection.createRange();
+            //    var selectedText = range.text;
+            //    MessageBox.Show(selectedText);
+            //}
+            MessageBox.Show("dddd");
+        }
+
     }
 }
