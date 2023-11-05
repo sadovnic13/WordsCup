@@ -39,8 +39,6 @@ namespace WordsCup
 
             dialog.Owner = this;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-
-            this.IsEnabled = false;
             dialog.Show();
 
             SearchPage sP = await SearchPage.CreateAsync();

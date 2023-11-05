@@ -8,6 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Gilroy\gilroy-black.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-blackitalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-bold.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-bolditalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-extrabolditalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-heavy.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-heavyitalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-lightitalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-medium.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-mediumitalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-regular.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-regularitalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-semibold.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-semibolditalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-thin.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-thinitalic.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-ultralight.ttf" />
+    <None Remove="Fonts\Gilroy\gilroy-ultralightitalic.ttf" />
     <None Remove="Images\do.png" />
   </ItemGroup>
 
@@ -19,6 +37,60 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Gilroy\gilroy-black.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-blackitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-bolditalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-extrabolditalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-heavy.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-heavyitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-lightitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-medium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-mediumitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-regularitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-semibold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-semibolditalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-thin.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-thinitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-ultralight.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Gilroy\gilroy-ultralightitalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\do.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
