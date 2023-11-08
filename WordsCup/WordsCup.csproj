@@ -27,6 +27,8 @@
     <None Remove="Fonts\Gilroy\gilroy-ultralight.ttf" />
     <None Remove="Fonts\Gilroy\gilroy-ultralightitalic.ttf" />
     <None Remove="Images\do.png" />
+    <None Remove="Images\System_icons\fail.png" />
+    <None Remove="Images\System_icons\success.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -93,6 +95,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\do.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\System_icons\fail.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\System_icons\success.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

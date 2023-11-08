@@ -16,6 +16,9 @@
     <Compile Update="SearchPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SuccessPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WordSelectPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SearchPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SuccessPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WordSelectPage.xaml">

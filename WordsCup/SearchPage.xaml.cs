@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using mshtml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +46,14 @@ namespace WordsCup
                     link.Attributes.Remove("href");
                 }
 
-                var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
+                //var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
 
-                var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
+                //var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
+
+                var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/main/div/div/div/div[1]/div/div[2]/div[1]/div[1]/div/article/div[2]/div[2]/div[1]/div/div");
+
+                //var nodes = bodyContent.SelectNodes("//p");
+                var nodes = bodyContent.ChildNodes;
 
                 // Объединить HTML всех выбранных узлов в одну строку
                 return string.Join("\n", nodes.Select(node => node.OuterHtml));
@@ -77,7 +83,7 @@ namespace WordsCup
         {
             BlurEffect bE = new BlurEffect();
             bE.Radius = 5;
-            Effect = bE;  
+            Effect = bE;
 
             DownloadAnimation dialog = new DownloadAnimation();
 
@@ -87,7 +93,7 @@ namespace WordsCup
             this.IsEnabled = false;
             TB.Visibility = Visibility.Hidden;
             dialog.Show();
-            await ViewTextBrowser();            
+            await ViewTextBrowser();
 
             dialog.Close();
 
@@ -98,9 +104,37 @@ namespace WordsCup
 
         }
 
-        private void TB_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show(GetSelectedText());
+            var doc = TB.Document as HTMLDocument;
+            if (doc != null)
+            {
+                var currentSelection = doc.selection;
+                if (currentSelection != null)
+                {
+                    dynamic selectionRange = currentSelection.createRange();
+                    if (selectionRange != null)
+                    {
+                        try
+                        {
+                            var selectionText = ((string)selectionRange.text).Trim();
+                            SuccessPage sp;
+                            if (selectionText == "о")
+                            {
+                                sp = new SuccessPage("success.png");
+                            }
+                            else
+                            {
+                                sp = new SuccessPage("fail.png");
+                            }
+                            sp.Owner = this;
+                            sp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            sp.ShowDialog();
+                        }
+                        catch (ArgumentNullException) { }
+                    }
+                }
+            }
         }
     }
 }

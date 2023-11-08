@@ -12,21 +12,24 @@ namespace WordsCup
 {
     class GlobalValues
     {
-        public static readonly string url = "https://ru.wikipedia.org/wiki/Special:Random";
+        public static string url = "https://habr.com/ru/articles/";
         public static HtmlDocument doc {  get; set; }
         
         public static string userDefinedText { get; set; }
 
         public static void GeneratePage()
         {
-                try
-                {
-                    GlobalValues.doc = new HtmlWeb().Load(url);
-                }
-                catch (WebException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
+            try
+            {
+                Random rnd = new Random();
+                //GlobalValues.url += rnd.Next(0, 99999);
+                    
+                GlobalValues.doc = new HtmlWeb().Load(url + 4444);
+            }
+            catch (WebException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
     }

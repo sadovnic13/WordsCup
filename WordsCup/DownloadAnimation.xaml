@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         Background="{x:Null}">
     <Grid>
-        <fa:ImageAwesome Source="pack://application:,,,/Images/do.png" Spin="True" Height="120" Width="120" />        
+        <fa:ImageAwesome Source="Images/do.png" Spin="True" Height="120" Width="120" />        
     </Grid>
 </Window>
  
