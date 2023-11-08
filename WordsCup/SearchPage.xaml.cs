@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Windows.Controls.WebBrowser;
 
 namespace WordsCup
 {
@@ -45,6 +46,7 @@ namespace WordsCup
                 }
 
                 var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
+
                 var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
 
                 // Объединить HTML всех выбранных узлов в одну строку
@@ -98,14 +100,7 @@ namespace WordsCup
 
         private void TB_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //if (TB.Document is mshtml.HTMLDocument document)
-            //{
-            //    var range = (mshtml.IHTMLTxtRange)document.selection.createRange();
-            //    var selectedText = range.text;
-            //    MessageBox.Show(selectedText);
-            //}
-            MessageBox.Show("dddd");
+            //MessageBox.Show(GetSelectedText());
         }
-
     }
 }
