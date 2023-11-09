@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 using static System.Windows.Controls.WebBrowser;
 
@@ -38,28 +39,40 @@ namespace WordsCup
 
         private async Task ViewTextBrowser()
         {
-            var htmlContent = await Task.Run(() =>
+            try
             {
-                GlobalValues.GeneratePage();
-                foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
+                var htmlContent = await Task.Run(async () =>
                 {
-                    link.Attributes.Remove("href");
-                }
+                    GlobalValues.GeneratePage();
 
-                //var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
+                    //var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
 
-                //var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
+                    //var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
+                    //
+                    HtmlNode bodyContent;
 
-                var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/main/div/div/div/div[1]/div/div[2]/div[1]/div[1]/div/article/div[2]/div[2]/div[1]/div/div");
 
-                //var nodes = bodyContent.SelectNodes("//p");
-                var nodes = bodyContent.ChildNodes;
+                    while (true)
+                    {
+                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/main/div/div/div/div[1]/div/div[2]/div[1]/div[1]/div/article/div[2]/div[2]/div[1]/div/div");
 
-                // Объединить HTML всех выбранных узлов в одну строку
-                return string.Join("\n", nodes.Select(node => node.OuterHtml));
-            });
+                        if (bodyContent == null)
+                        {
+                            GlobalValues.GeneratePage();
+                        }
+                        else
+                        {
+                            break;
+                        } 
+                    }
+                    //var nodes = bodyContent.SelectNodes("//p");
+                    var nodes = bodyContent.ChildNodes;
 
-            string html = $@"
+                    // Объединить HTML всех выбранных узлов в одну строку
+                    return string.Join("\n", nodes.Select(node => node.OuterHtml));
+                });
+
+                string html = $@"
                 <!DOCTYPE html>
                 <html>
                 <head>
@@ -69,7 +82,12 @@ namespace WordsCup
                     {htmlContent}
                 </body>
                 </html>";
-            TB.NavigateToString(html);
+                TB.NavigateToString(html);
+            }
+            catch(NullReferenceException)
+            {
+                await ViewTextBrowser();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -101,7 +119,7 @@ namespace WordsCup
             IsEnabled = true;
             bE.Radius = 0;
             Effect = bE;
-
+                
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)

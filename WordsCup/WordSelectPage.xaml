@@ -5,21 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
-        Title="WordSelectPage" Height="450" Width="800">
-    <Grid Background="#FF028B72">
-        <Label Content="Выбери:" HorizontalAlignment="Left" Margin="174,153,0,0" VerticalAlignment="Top" FontSize="17"/>
-        <Button Height="50" Margin="256,211,270,174" Click="Button_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2" CornerRadius="15">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-            Поехали
-        </Button>
-        <ComboBox HorizontalAlignment="Left" Margin="285,158,0,0" VerticalAlignment="Top" Width="237" Height="27"/>
+        Title="WordSelectPage" Height="500" Width="900"
+        MinHeight="500" MinWidth="900">
+    <Grid Background="#BBBBBB">
+        <StackPanel Margin="140 150" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DockPanel Margin="0 20 0 0">
+                <Label DockPanel.Dock="Left" Content="Сложность:" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="32px" FontWeight="DemiBold" FontFamily="Gilroy UltraLight"/>
+                <ComboBox DockPanel.Dock="Right" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="400" Height="50">
+                    <TextBlock>Легко</TextBlock>
+                    <TextBlock>Средне</TextBlock>
+                    <TextBlock>Сложно</TextBlock>
+                    
+                    <ComboBox.Template>
+                        <ControlTemplate TargetType="ComboBox">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </ComboBox.Template>
 
+                </ComboBox>
+                
+            </DockPanel>
+
+            <Button DockPanel.Dock="Bottom" Height="40" Width="300" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" Margin="0 40 0 20" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                Поехали
+            </Button>
+
+        </StackPanel>
 
     </Grid>
 </Window>

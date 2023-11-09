@@ -22,9 +22,14 @@ namespace WordsCup
             try
             {
                 Random rnd = new Random();
-                //GlobalValues.url += rnd.Next(0, 99999);
+                int num = rnd.Next(526960, 626960);
                     
-                GlobalValues.doc = new HtmlWeb().Load(url + 4444);
+                GlobalValues.doc = new HtmlWeb().Load(url + num);
+
+                foreach (var link in GlobalValues.doc.DocumentNode.DescendantsAndSelf("a"))
+                {
+                    link.Attributes.Remove("href");
+                }
             }
             catch (WebException e)
             {

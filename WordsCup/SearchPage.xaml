@@ -8,11 +8,11 @@
         Title="SearchPage" Height="450" Width="800">
     <Grid>
         <WebBrowser x:Name="TB" Margin="0,0,150,0" />
-        
+
         <Button Content="Reloud" HorizontalAlignment="Right" Margin="0,360,14,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="100"/>
-        
+
         <Button Content="More" HorizontalAlignment="Right" Margin="0,309,14,0" VerticalAlignment="Top" Click="MoreTextButton" Height="38" Width="100"/>
-        <Button x:Name="Confirm" Content="Button" HorizontalAlignment="Left" Margin="697,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.732,0.202" Height="39" Width="76" Click="Confirm_Click" />
+        <Button x:Name="Confirm" Content="Button" HorizontalAlignment="Right" Margin="0,0,27,249" VerticalAlignment="Bottom" RenderTransformOrigin="0.732,0.202" Height="39" Width="76" Click="Confirm_Click" />
 
     </Grid>
 </Window>
