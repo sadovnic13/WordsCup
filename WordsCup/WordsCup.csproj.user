@@ -7,36 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DownloadAnimation.xaml.cs">
+    <Compile Update="Pages\Additional\DownloadAnimation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginPage.xaml.cs">
+    <Compile Update="Pages\Basic\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SearchPage.xaml.cs">
+    <Compile Update="Pages\Basic\SearchPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SuccessPage.xaml.cs">
+    <Compile Update="Pages\Additional\SuccessPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="WordSelectPage.xaml.cs">
+    <Compile Update="Pages\Basic\WordSelectPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DownloadAnimation.xaml">
+    <Page Update="Pages\Additional\DownloadAnimation.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LoginPage.xaml">
+    <Page Update="Pages\Basic\LoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SearchPage.xaml">
+    <Page Update="Pages\Basic\SearchPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SuccessPage.xaml">
+    <Page Update="Pages\Additional\SuccessPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WordSelectPage.xaml">
+    <Page Update="Pages\Basic\WordSelectPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

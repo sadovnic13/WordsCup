@@ -26,7 +26,7 @@
     <None Remove="Fonts\Gilroy\gilroy-thinitalic.ttf" />
     <None Remove="Fonts\Gilroy\gilroy-ultralight.ttf" />
     <None Remove="Fonts\Gilroy\gilroy-ultralightitalic.ttf" />
-    <None Remove="Images\do.png" />
+    <None Remove="Images\loading.png" />
     <None Remove="Images\System_icons\fail.png" />
     <None Remove="Images\System_icons\success.png" />
   </ItemGroup>
@@ -94,7 +94,7 @@
     <Resource Include="Fonts\Gilroy\gilroy-ultralightitalic.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\do.png">
+    <Resource Include="Images\loading.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\System_icons\fail.png">
@@ -103,6 +103,21 @@
     <Resource Include="Images\System_icons\success.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

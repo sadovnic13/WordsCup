@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\App.xaml
-5-923634511
+5-739438512
 
-11375678287
+12470070355
 203125893451
-DownloadAnimation.xaml;LoginPage.xaml;SearchPage.xaml;SuccessPage.xaml;WordSelectPage.xaml;
+Pages\Additional\DownloadAnimation.xaml;Pages\Additional\SuccessPage.xaml;Pages\Basic\LoginPage.xaml;Pages\Basic\SearchPage.xaml;Pages\Basic\WordSelectPage.xaml;
 
 True
 
