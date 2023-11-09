@@ -28,10 +28,13 @@
     <None Remove="Fonts\Gilroy\gilroy-ultralightitalic.ttf" />
     <None Remove="Images\loading.png" />
     <None Remove="Images\System_icons\fail.png" />
+    <None Remove="Images\System_icons\login.png" />
+    <None Remove="Images\System_icons\password.png" />
     <None Remove="Images\System_icons\success.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.1" />
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
     <PackageReference Include="Unofficial.Microsoft.mshtml" Version="7.0.3300" />
@@ -98,6 +101,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\System_icons\fail.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\System_icons\login.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\System_icons\password.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\System_icons\success.png">

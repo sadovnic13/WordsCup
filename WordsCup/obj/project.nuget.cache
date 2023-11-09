@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NyGSAYPs/hy/56qWdu4ZdLCQYm3qB4rhvlGU+todYIrF/6hNkuXV+1YzIXcUmKOakDQl6RP1p5me1dA13YOZJw==",
+  "dgSpecHash": "byYvLaZjLdUQ2PKyzWwYYFkqhvSWy1hVqXo8YfOkiWYekUhndzub41Cyry+UUE+9qKllL8gyu7r/wBmvTlui7Q==",
   "success": true,
   "projectFilePath": "D:\\German\\C#\\Projects\\WPF\\WordsCup\\WordsCup\\WordsCup.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\htmlagilitypack\\1.11.54\\htmlagilitypack.1.11.54.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\unofficial.microsoft.mshtml\\7.0.3300\\unofficial.microsoft.mshtml.7.0.3300.nupkg.sha512",
