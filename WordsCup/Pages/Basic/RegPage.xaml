@@ -3,10 +3,54 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:WordsCup.Pages.Basic"
         mc:Ignorable="d"
-        Title="RegPage" Height="450" Width="800">
-    <Grid>
-        
+        Title="RegPage" Height="500" Width="900"
+        MinHeight="500" MinWidth="450">
+    <Grid Background="#BBBBBB">
+        <Border Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Foreground="#0D0D0D" Margin="0 0 0 24" FontSize="32px" TextAlignment="Center" FontFamily="Gilroy Thin Italic" FontWeight="Bold">
+               Регистрация
+                </TextBlock>    
+
+                <Border Width="400" Height="50" CornerRadius="10" BorderBrush="#0D0D0D" BorderThickness="2">
+                    <DockPanel>
+                        <Image Source= "pack://application:,,,/Images/System_icons/login.png" Height="32" Width="32" Margin="4" DockPanel.Dock="Left"></Image>
+                        <extToolkit:WatermarkTextBox Background="Transparent" BorderBrush="Transparent" BorderThickness="0" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Логин"/>
+                    </DockPanel>
+                </Border>
+
+                <Border Width="400" Height="50" CornerRadius="10" Margin="0 36 0 0" BorderBrush="#0D0D0D" BorderThickness="2">
+                    <DockPanel>
+                        <Image Source= "pack://application:,,,/Images/System_icons/password.png" Height="32" Width="32" Margin="4" DockPanel.Dock="Left"></Image>
+                        <extToolkit:WatermarkPasswordBox Background="Transparent" BorderBrush="Transparent" BorderThickness="0" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Пароль"/>
+                    </DockPanel>
+                </Border>
+
+                <Border Width="400" Height="50" CornerRadius="10" Margin="0 36 0 72" BorderBrush="#0D0D0D" BorderThickness="2">
+                    <DockPanel>
+                        <Image Source= "pack://application:,,,/Images/System_icons/password.png" Height="32" Width="32" Margin="4" DockPanel.Dock="Left"></Image>
+                        <extToolkit:WatermarkPasswordBox Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="#0D0D0D" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Пароль повторно"/>
+                    </DockPanel>
+                </Border>
+
+                <Button DockPanel.Dock="Bottom" Height="40" Width="300" VerticalAlignment="Bottom" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" Margin="0 0 0 20" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    Войти
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Foreground="#0D0D0D" Margin="0 0 0 10" FontSize="20px" TextAlignment="Center" FontFamily="Gilroy Thin Italic" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="DemiBold" TextDecorations="Underline" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown">
+            Я тут бывалый
+        </TextBlock>
     </Grid>
 </Window>

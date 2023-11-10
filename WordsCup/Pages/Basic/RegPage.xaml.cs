@@ -23,5 +23,18 @@ namespace WordsCup.Pages.Basic
         {
             InitializeComponent();
         }
+
+        private void TextBlock_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LoginPage lg = new LoginPage();
+            lg.Left = this.Left;
+            lg.Top = this.Top;
+            lg.Width = this.ActualWidth;
+            lg.Height = this.ActualHeight;
+            lg.WindowState = this.WindowState;
+            lg.Show();
+            this.Close();
+        }
+
     }
 }

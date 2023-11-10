@@ -53,7 +53,7 @@ namespace WordsCup {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WordsCup;component/pages/basic/wordselectpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WordsCup;V1.0.0.0;component/pages/basic/wordselectpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Pages\Basic\WordSelectPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

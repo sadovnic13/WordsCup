@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[1.11.54, )"
             },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
             "Unofficial.Microsoft.mshtml": {
               "target": "Package",
               "version": "[7.0.3300, )"

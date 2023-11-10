@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WordsCup.Pages.Basic;
 
 namespace WordsCup
 {
@@ -22,6 +23,18 @@ namespace WordsCup
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void TextBlock_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RegPage rg = new RegPage();
+            rg.Left = this.Left;
+            rg.Top = this.Top;
+            rg.Width = this.ActualWidth;
+            rg.Height = this.ActualHeight;
+            rg.WindowState = this.WindowState;
+            rg.Show();
+            this.Close();
         }
     }
 }
