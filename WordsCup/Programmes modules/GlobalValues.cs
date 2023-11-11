@@ -7,12 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using HtmlAgilityPack;
+using WordsCup.DB;
 
 namespace WordsCup
 {
     class GlobalValues
     {
+
         public static string url = "https://habr.com/ru/articles/";
+
         public static HtmlDocument doc {  get; set; }
         
         public static string userDefinedText { get; set; }

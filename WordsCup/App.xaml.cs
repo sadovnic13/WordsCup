@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WordsCup.DB;
 
 namespace WordsCup
 {
@@ -13,5 +14,11 @@ namespace WordsCup
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            this.InitializeComponent();
+
+            DataAccess.InitializeDatabase();
+        }
     }
 }
