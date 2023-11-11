@@ -119,3 +119,4 @@ D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\runtimes\wi
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\Humanizer.dll
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\Microsoft.EntityFrameworkCore.Design.dll
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\Mono.TextTemplating.dll
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\DB\WordsCup.db

@@ -18,18 +18,18 @@
                 <Border Width="400" Height="50" CornerRadius="10" BorderBrush="#0D0D0D" BorderThickness="2">
                     <DockPanel>
                         <Image Source= "pack://application:,,,/Images/System_icons/login.png" Height="32" Width="32" Margin="4" DockPanel.Dock="Left"></Image>
-                        <extToolkit:WatermarkTextBox Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="#0D0D0D" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Логин"/>
+                        <extToolkit:WatermarkTextBox x:Name="login" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="#0D0D0D" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Логин"/>
                     </DockPanel>
                 </Border>
 
                 <Border Width="400" Height="50" CornerRadius="10" Margin="0 36 0 72" BorderBrush="#0D0D0D" BorderThickness="2">
                     <DockPanel>
                         <Image Source= "pack://application:,,,/Images/System_icons/password.png" Height="32" Width="32" Margin="4" DockPanel.Dock="Left"></Image>
-                        <extToolkit:WatermarkPasswordBox Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="#0D0D0D" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Пароль"/>
+                        <extToolkit:WatermarkPasswordBox x:Name="password" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="#0D0D0D" FontSize="24px" FontWeight="Bold" VerticalAlignment="Center" Watermark="Пароль"/>
                     </DockPanel>
                 </Border>
 
-                <Button DockPanel.Dock="Bottom" Height="40" Width="300" VerticalAlignment="Bottom" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" Margin="0 0 0 20" FontWeight="Bold">
+                <Button DockPanel.Dock="Bottom" Height="40" Width="300" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" Margin="0 0 0 20" FontWeight="Bold" Click="Button_Click" IsDefault="True">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >

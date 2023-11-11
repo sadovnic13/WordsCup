@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="DB\WordsCup.db" />
     <None Remove="Fonts\Gilroy\gilroy-black.ttf" />
     <None Remove="Fonts\Gilroy\gilroy-blackitalic.ttf" />
     <None Remove="Fonts\Gilroy\gilroy-bold.ttf" />
@@ -62,9 +61,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="DB\WordsCup.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Fonts\Gilroy\gilroy-black.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -153,6 +149,12 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DB\WordsCup.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

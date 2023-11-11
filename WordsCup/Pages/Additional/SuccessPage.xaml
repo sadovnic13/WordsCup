@@ -12,7 +12,7 @@
     <Grid>
         <DockPanel Margin="30 20" >
             <Image x:Name="img" DockPanel.Dock="Top" Width="100" Height="100" Margin="10"/>
-            <Button DockPanel.Dock="Bottom" Height="30" Width="140" VerticalAlignment="Bottom" Click="Button_Click">
+            <Button DockPanel.Dock="Bottom" Height="30" Width="140" VerticalAlignment="Bottom" Click="Button_Click" IsDefault="True" IsCancel="True">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="5">

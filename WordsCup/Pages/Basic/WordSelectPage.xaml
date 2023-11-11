@@ -15,17 +15,9 @@
                     <TextBlock>Легко</TextBlock>
                     <TextBlock>Средне</TextBlock>
                     <TextBlock>Сложно</TextBlock>
-                    
-                    <ComboBox.Template>
-                        <ControlTemplate TargetType="ComboBox">
-                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </ComboBox.Template>
+
 
                 </ComboBox>
-                
             </DockPanel>
 
             <Button DockPanel.Dock="Bottom" Height="40" Width="300" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" Margin="0 40 0 20" >

@@ -12,7 +12,9 @@ namespace WordsCup.DB
 {
    public static class DataAccess
     {
-        private static readonly string dbpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "D:\\German\\C#\\Projects\\WPF\\WordsCup\\WordsCup\\DB\\WordsCup.db");
+        private static readonly string dbpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB\\WordsCup.db");
+
+
         public async static Task InitializeDatabase()
         {
             string dbpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WordsCup.db");
@@ -28,27 +30,6 @@ namespace WordsCup.DB
                 var createTable = new SqliteCommand(tableCommand, db);
 
                 createTable.ExecuteReader();
-                db.Close();
-            }
-        }
-
-
-
-        public static void AddData(string inputText)
-        {
-            
-            using (var db = new SqliteConnection($"Filename={dbpath}"))
-            {
-                db.Open();
-
-                var insertCommand = new SqliteCommand();
-                insertCommand.Connection = db;
-
-                // Use parameterized query to prevent SQL injection attacks
-                insertCommand.CommandText = "INSERT INTO MyTable VALUES (NULL, @Entry);";
-                insertCommand.Parameters.AddWithValue("@Entry", inputText);
-
-                insertCommand.ExecuteReader();
                 db.Close();
             }
         }
@@ -71,6 +52,24 @@ namespace WordsCup.DB
                 db.Close();
             }
         }
+
+        public static bool UserExists(string username, string password)
+        {
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+                var selectCommand = new SqliteCommand
+                    ("SELECT COUNT(*) FROM Users WHERE login = @Username AND password = @Password", db);
+                selectCommand.Parameters.AddWithValue("@Username", username);
+                selectCommand.Parameters.AddWithValue("@Password", password);
+
+                int count = Convert.ToInt32(selectCommand.ExecuteScalar());
+                db.Close();
+
+                return count == 1;
+            }
+        }
+
 
 
     }
