@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WordsCup.Pages.Basic;
 
 namespace WordsCup
 {
@@ -43,7 +44,25 @@ namespace WordsCup
 
             SearchPage sP = await SearchPage.CreateAsync();
 
+            sP.Left = this.Left;
+            sP.Top = this.Top;
+            sP.Width = this.ActualWidth;
+            sP.Height = this.ActualHeight;
+            sP.WindowState = this.WindowState;
+
             sP.Show();
+            this.Close();
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage lP = new LoginPage();
+            lP.Left = this.Left;
+            lP.Top = this.Top;
+            lP.Width = this.ActualWidth;
+            lP.Height = this.ActualHeight;
+            lP.WindowState = this.WindowState;
+            lP.Show();
             this.Close();
         }
     }

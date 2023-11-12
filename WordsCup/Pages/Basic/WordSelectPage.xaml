@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
         Title="WordSelectPage" Height="500" Width="900"
-        MinHeight="500" MinWidth="900">
+        MinHeight="500" MinWidth="450">
     <Grid Background="#BBBBBB">
+        <Border HorizontalAlignment="Right" VerticalAlignment="Top" Background="#0D0D0D" Height="50" CornerRadius="0 0 0 10">
+            <TextBlock Foreground="#F2F2F2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24px" FontWeight="Bold" Margin="15 0 15 0"> 
+                Баланс: 0
+            </TextBlock>
+        </Border>
+
         <StackPanel Margin="140 150" HorizontalAlignment="Center" VerticalAlignment="Center">
             <DockPanel Margin="0 20 0 0">
                 <Label DockPanel.Dock="Left" Content="Сложность:" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="32px" FontWeight="DemiBold" FontFamily="Gilroy UltraLight"/>
@@ -15,8 +21,6 @@
                     <TextBlock>Легко</TextBlock>
                     <TextBlock>Средне</TextBlock>
                     <TextBlock>Сложно</TextBlock>
-
-
                 </ComboBox>
             </DockPanel>
 
@@ -32,6 +36,27 @@
             </Button>
 
         </StackPanel>
+
+        <Button DockPanel.Dock="Bottom" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="#0D0D0D" Foreground="#F2F2F2" FontSize="20px" Margin="0 0 10 10" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            i
+        </Button>
+
+        <Button x:Name="exit" DockPanel.Dock="Bottom" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#F2F2F2" FontSize="20px" Margin="10 0 0 10" Background="#FF0D0D0D" Click="exit_Click" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                        <Image Source="pack://application:,,,/Images/System_icons/exit.png" Margin="6"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
 </Window>

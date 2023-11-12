@@ -17,8 +17,6 @@ namespace WordsCup.DB
 
         public async static Task InitializeDatabase()
         {
-            string dbpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WordsCup.db");
-
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
                 db.Open();

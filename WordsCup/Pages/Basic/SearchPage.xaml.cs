@@ -88,6 +88,11 @@ namespace WordsCup
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WordSelectPage sP = new WordSelectPage();
+            sP.Left = this.Left;
+            sP.Top = this.Top;
+            sP.Width = this.ActualWidth;
+            sP.Height = this.ActualHeight;
+            sP.WindowState = this.WindowState;
             sP.Show();
             this.Close();
         }

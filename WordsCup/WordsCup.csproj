@@ -29,6 +29,7 @@
     <None Remove="Fonts\Gilroy\gilroy-ultralight.ttf" />
     <None Remove="Fonts\Gilroy\gilroy-ultralightitalic.ttf" />
     <None Remove="Images\loading.png" />
+    <None Remove="Images\System_icons\exit.png" />
     <None Remove="Images\System_icons\fail.png" />
     <None Remove="Images\System_icons\login.png" />
     <None Remove="Images\System_icons\password.png" />
@@ -118,6 +119,9 @@
     <Resource Include="Images\loading.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\System_icons\exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\System_icons\fail.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -149,12 +153,6 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="DB\WordsCup.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
