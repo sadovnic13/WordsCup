@@ -5,14 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
-        Title="SearchPage" Height="450" Width="800">
+        Title="WordsCup" Height="600" Width="1000"
+        MinHeight="400" MinWidth="600">
     <Grid>
-        <WebBrowser x:Name="TB" Margin="0,0,150,0" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="300"></ColumnDefinition>
+            <ColumnDefinition Width="250" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Border Background="#F2F2F2"/>
+        
+        <WebBrowser x:Name="TB" Grid.Column="0"/>
+        
+        <Grid Grid.Column="1" Background="#BBBBBB">
+            <Border HorizontalAlignment="Right" VerticalAlignment="Top" Background="#0D0D0D" Height="50" CornerRadius="0 0 0 10">
+                <TextBlock x:Name="Balance" Foreground="#F2F2F2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24px" FontWeight="Bold" Margin="15 0 15 0"> 
+                    Баланс:
+                </TextBlock>
+            </Border>
+            
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 0" Background="#0D0D0D" Height="50" Width="50" CornerRadius="0 0 10 10">
+                
+            </Border>
 
-        <Button Content="Reloud" HorizontalAlignment="Right" Margin="0,360,14,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="100"/>
+            <StackPanel VerticalAlignment="Bottom"  Margin="0 0 0 64">
+                <Button Content="Далее" HorizontalAlignment="Center"  Click="MoreTextButton" Height="40" Margin="0 0 0 10" Width="206" Background="#A68256" FontSize="24" FontWeight="Bold" Foreground="#F2F2F2">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-        <Button Content="More" HorizontalAlignment="Right" Margin="0,309,14,0" VerticalAlignment="Top" Click="MoreTextButton" Height="38" Width="100"/>
-        <Button x:Name="Confirm" Content="Button" HorizontalAlignment="Right" Margin="0,0,27,249" VerticalAlignment="Bottom" RenderTransformOrigin="0.732,0.202" Height="39" Width="76" Click="Confirm_Click" />
+                <Button x:Name="Confirm" Content="Ввод" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="39" Width="206" Margin="0 0 0 10" Click="Confirm_Click" Background="#A68256" FontSize="24" FontWeight="Bold" Foreground="#F2F2F2">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
+                <Button Content="Выход" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Click="Button_Click" Height="40" Width="206" Background="#A68256" FontSize="24" FontWeight="Bold" Foreground="#F2F2F2">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                
+            </StackPanel>
+
+
+            <Button DockPanel.Dock="Bottom" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="#0D0D0D" Foreground="#F2F2F2" FontSize="20px" Margin="10" Click="Button_Click_1" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                i
+            </Button>
+        </Grid>
     </Grid>
 </Window>

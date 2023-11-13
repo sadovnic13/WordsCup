@@ -20,7 +20,6 @@ namespace WordsCup.Pages.Basic
     /// </summary>
     public partial class RegPage : Window
     {
-        ApplicationContext db;
 
         public RegPage()
         {

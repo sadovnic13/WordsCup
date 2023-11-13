@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WordsCup.Pages.Additional;
 using WordsCup.Pages.Basic;
 
 namespace WordsCup
@@ -27,6 +28,12 @@ namespace WordsCup
         public WordSelectPage()
         {
             InitializeComponent();
+
+            if(GlobalValues.user.saveWord == null)
+            {
+                Continue.Visibility = Visibility.Collapsed;
+            }
+            Balance.Text += " " + GlobalValues.user.balance;
         }
 
         
@@ -37,6 +44,7 @@ namespace WordsCup
             Effect = bE;
 
             DownloadAnimation dialog = new DownloadAnimation();
+            this.ResizeMode = ResizeMode.NoResize;
 
             dialog.Owner = this;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -64,6 +72,14 @@ namespace WordsCup
             lP.WindowState = this.WindowState;
             lP.Show();
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            InformationalPage iP = new InformationalPage();
+            iP.Owner = this;
+            iP.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            iP.ShowDialog();
         }
     }
 }

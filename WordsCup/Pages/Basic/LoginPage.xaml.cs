@@ -46,6 +46,9 @@ namespace WordsCup
 
            if(DataAccess.UserExists(log, pass))
             {
+                GlobalValues.user = DataAccess.GetUser(log);
+
+
                 WordSelectPage ws = new WordSelectPage();
                 ws.Left = this.Left;
                 ws.Top = this.Top;

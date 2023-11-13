@@ -6,6 +6,9 @@
     <Compile Update="Pages\Additional\DownloadAnimation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\Additional\InformationalPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\Basic\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,6 +27,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\Additional\DownloadAnimation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Additional\InformationalPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\Basic\LoginPage.xaml">

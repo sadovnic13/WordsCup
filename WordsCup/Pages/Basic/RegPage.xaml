@@ -6,7 +6,7 @@
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:WordsCup.Pages.Basic"
         mc:Ignorable="d"
-        Title="RegPage" Height="500" Width="900"
+        Title="WordsCup" Height="500" Width="900"
         MinHeight="500" MinWidth="450">
     <Grid Background="#BBBBBB">
         <Border Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center">

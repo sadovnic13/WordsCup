@@ -5,26 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
-        Title="WordSelectPage" Height="500" Width="900"
+        Title="WordsCup" Height="500" Width="900"
         MinHeight="500" MinWidth="450">
     <Grid Background="#BBBBBB">
         <Border HorizontalAlignment="Right" VerticalAlignment="Top" Background="#0D0D0D" Height="50" CornerRadius="0 0 0 10">
-            <TextBlock Foreground="#F2F2F2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24px" FontWeight="Bold" Margin="15 0 15 0"> 
-                Баланс: 0
+            <TextBlock x:Name="Balance" Foreground="#F2F2F2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24px" FontWeight="Bold" Margin="15 0 15 0"> 
+                Баланс: 
             </TextBlock>
         </Border>
 
-        <StackPanel Margin="140 150" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <DockPanel Margin="0 20 0 0">
-                <Label DockPanel.Dock="Left" Content="Сложность:" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="32px" FontWeight="DemiBold" FontFamily="Gilroy UltraLight"/>
-                <ComboBox DockPanel.Dock="Right" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="400" Height="50">
+                <Label DockPanel.Dock="Left" Content="Сложность:" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="32px" Width="200" FontWeight="DemiBold" FontFamily="Gilroy UltraLight"/>
+
+                <ComboBox DockPanel.Dock="Right" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="300" Height="50">
+
                     <TextBlock>Легко</TextBlock>
                     <TextBlock>Средне</TextBlock>
                     <TextBlock>Сложно</TextBlock>
                 </ComboBox>
             </DockPanel>
 
-            <Button DockPanel.Dock="Bottom" Height="40" Width="300" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" Margin="0 40 0 20" >
+            <DockPanel>
+                <Button x:Name="Continue" DockPanel.Dock="Left" Height="40" Width="225" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" FontWeight="Bold" Margin="10 40 30 20" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    Продолжить
+                </Button>
+
+                <Button Height="40" Width="225" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" FontWeight="Bold" Margin="0 40 0 20" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    Начать
+                </Button>
+            </DockPanel>
+        </StackPanel>
+
+            <Button DockPanel.Dock="Bottom" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="#0D0D0D" Foreground="#F2F2F2" FontSize="20px" Margin="0 0 10 10" Click="Button_Click_1" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
@@ -32,21 +59,8 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
-                Поехали
+                i
             </Button>
-
-        </StackPanel>
-
-        <Button DockPanel.Dock="Bottom" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="#0D0D0D" Foreground="#F2F2F2" FontSize="20px" Margin="0 0 10 10" >
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-            i
-        </Button>
 
         <Button x:Name="exit" DockPanel.Dock="Bottom" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#F2F2F2" FontSize="20px" Margin="10 0 0 10" Background="#FF0D0D0D" Click="exit_Click" >
             <Button.Template>

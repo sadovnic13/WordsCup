@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 
@@ -66,6 +65,41 @@ namespace WordsCup.DB
 
                 return count == 1;
             }
+        }
+
+        public static User GetUser(string username)
+        {
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                var selectCommand = new SqliteCommand
+                    ("SELECT * FROM Users WHERE login = @Username", db);
+                selectCommand.Parameters.AddWithValue("@Username", username);
+
+                using (var reader = selectCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        var user = new User
+                        {
+                            id = reader.GetInt32(0),
+                            login = reader.GetString(1),
+                            password = reader.GetString(2),
+                            balance = reader.GetInt32(3),
+                            saveWord = reader.IsDBNull(4) ? null : reader.GetString(4) // проверяем, является ли значение NULL
+                        };
+
+                        db.Close();
+
+                        return user;
+                    }
+                }
+
+                db.Close();
+            }
+
+            return null;
         }
 
 

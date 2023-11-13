@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using WordsCup.Pages.Additional;
 
 namespace WordsCup
 {
@@ -24,6 +25,8 @@ namespace WordsCup
         public SearchPage()
         {
             InitializeComponent();
+
+            Balance.Text += " " + GlobalValues.user.balance;
         }
 
         public static async Task<SearchPage> CreateAsync()
@@ -107,7 +110,7 @@ namespace WordsCup
 
             dialog.Owner = this;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-
+            this.ResizeMode = ResizeMode.NoResize;
             this.IsEnabled = false;
             TB.Visibility = Visibility.Hidden;
             dialog.Show();
@@ -117,6 +120,7 @@ namespace WordsCup
 
             TB.Visibility = Visibility.Visible;
             IsEnabled = true;
+            this.ResizeMode = ResizeMode.CanResize;
             bE.Radius = 0;
             Effect = bE;
                 
@@ -150,6 +154,14 @@ namespace WordsCup
                     }
                 }
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            InformationalPage iP = new InformationalPage();
+            iP.Owner = this;
+            iP.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            iP.ShowDialog();
         }
     }
 }

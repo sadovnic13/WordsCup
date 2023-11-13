@@ -17,7 +17,7 @@ namespace WordsCup
         public App()
         {
             this.InitializeComponent();
-
+            
             DataAccess.InitializeDatabase();
         }
     }
