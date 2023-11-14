@@ -26,6 +26,7 @@ namespace WordsCup
         {
             InitializeComponent();
 
+            Word.Text = GlobalValues.user.saveWord;
             Balance.Text += " " + GlobalValues.user.balance;
         }
 
@@ -53,7 +54,7 @@ namespace WordsCup
 
                     while (true)
                     {
-                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/main/div/div/div/div[1]/div/div[2]/div[1]/div[1]/div/article/div[2]/div[2]/div[1]/div/div");
+                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/main/div/div/div/div/div/div[2]/article/div[2]/div[2]/div[1]/div/div");
 
                         if (bodyContent == null)
                         {
@@ -140,9 +141,20 @@ namespace WordsCup
                         SuccessPage sp;
                         var selectionText = (string)selectionRange.text;
                             
-                        if (selectionText != null && selectionText.Trim() == "о" )
+                        if (selectionText != null && selectionText.Trim() == GlobalValues.user.saveWord)
                         {
                             sp = new SuccessPage("success.png");
+                            GlobalValues.user.balance += GlobalValues.successPoint;
+                            GlobalValues.user.saveWord = null;
+
+                            WordSelectPage ws = new WordSelectPage();
+                            ws.Left = this.Left;
+                            ws.Top = this.Top;
+                            ws.Width = this.ActualWidth;
+                            ws.Height = this.ActualHeight;
+                            ws.WindowState = this.WindowState;
+                            ws.Show();
+                            this.Close();
                         }
                         else
                         {

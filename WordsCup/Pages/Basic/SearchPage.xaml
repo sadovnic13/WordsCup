@@ -23,10 +23,17 @@
                     Баланс:
                 </TextBlock>
             </Border>
-            
             <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 0" Background="#0D0D0D" Height="50" Width="50" CornerRadius="0 0 10 10">
-                
+                <Image Source= "pack://application:,,,/Images/System_icons/bulb.png" Height="40" Width="40" Margin="4"></Image>
             </Border>
+
+            <Grid>
+                <TextBlock Foreground="#0D0D0D" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24px" FontWeight="Bold" Margin="12 70 0 0" Height="32">
+                    Ваше слово:
+                </TextBlock>
+                <TextBlock x:Name="Word" Foreground="#0D0D0D" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24px" FontWeight="Bold" Margin="32 102 0 10" Height="32">
+                </TextBlock>
+            </Grid>
 
             <StackPanel VerticalAlignment="Bottom"  Margin="0 0 0 64">
                 <Button Content="Далее" HorizontalAlignment="Center"  Click="MoreTextButton" Height="40" Margin="0 0 0 10" Width="206" Background="#A68256" FontSize="24" FontWeight="Bold" Foreground="#F2F2F2">

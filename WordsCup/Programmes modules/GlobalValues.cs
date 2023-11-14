@@ -24,7 +24,10 @@ namespace WordsCup
     {
         public static User user;
 
-        public static string url = "https://habr.com/ru/articles/";
+        public static int successPoint = 1;
+
+
+        public static string url = "https://habr.com/ru/sandbox/";
 
         public static HtmlDocument doc {  get; set; }
         
@@ -35,7 +38,7 @@ namespace WordsCup
             try
             {
                 Random rnd = new Random();
-                int num = rnd.Next(526960, 626960);
+                int num = rnd.Next(1000, 203644);
 
                 GlobalValues.doc = new HtmlWeb().Load(url + num);
 
