@@ -45,6 +45,15 @@ namespace WordsCup
                 {
                     GlobalValues.GeneratePage();
 
+                    //var nodesToRemove = GlobalValues.doc.DocumentNode.SelectNodes("//img"); // Поиск всех тегов <img>
+
+                    //if (nodesToRemove != null)
+                    //{
+                    //    foreach (var imgNode in nodesToRemove)
+                    //    {
+                    //        imgNode.Remove(); // Удаление каждого тега <img>
+                    //    }
+                    //}
                     //var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
 
                     //var nodes = bodyContent.SelectNodes("//h2|//p|//ul");

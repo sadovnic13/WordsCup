@@ -42,12 +42,27 @@ namespace WordsCup
                 GlobalValues.doc = new HtmlWeb().Load(url + num);
                 //GlobalValues.doc = new HtmlWeb().Load("");
 
-                //foreach (var node in GlobalValues.doc.DocumentNode.DescendantsAndSelf())
+                var nodesToRemove = GlobalValues.doc.DocumentNode.DescendantsAndSelf()
+     .Where(n => n.NodeType == HtmlNodeType.Element && (n.Name == "a" || n.Name == "img" || n.Name == "figcaption"))
+     .ToList();
+                foreach (var node in GlobalValues.doc.DocumentNode.DescendantsAndSelf())
+                {
+                    if (node.NodeType == HtmlNodeType.Element)
+                    {
+                        node.Attributes.Remove("class");
+                    }
+                }
+
+                foreach (var node in nodesToRemove)
+                {
+                    node.Remove();
+                }
+
+
+
+                //foreach (var link in doc.DocumentNode.DescendantsAndSelf("a"))
                 //{
-                //    if (node.NodeType == HtmlNodeType.Element)
-                //    {
-                //        node.Attributes.RemoveAll();
-                //    }
+                //    link.Attributes.Remove("href");
                 //}
             }
             catch (WebException e)
