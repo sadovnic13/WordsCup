@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using System.IO;
 using System.Windows;
+using System.Data;
 
 namespace WordsCup.DB
 {
@@ -14,22 +15,22 @@ namespace WordsCup.DB
         private static readonly string dbpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB\\WordsCup.db");
 
 
-        public async static Task InitializeDatabase()
-        {
-            using (var db = new SqliteConnection($"Filename={dbpath}"))
-            {
-                db.Open();
+        //public async static Task InitializeDatabase()
+        //{
+        //    using (var db = new SqliteConnection($"Filename={dbpath}"))
+        //    {
+        //        db.Open();
 
-                string tableCommand = "CREATE TABLE IF NOT " +
-                    "EXISTS MyTable (Primary_Key INTEGER PRIMARY KEY, " +
-                    "Text_Entry NVARCHAR(2048) NULL)";
+        //        string tableCommand = "CREATE TABLE IF NOT " +
+        //            "EXISTS MyTable (Primary_Key INTEGER PRIMARY KEY, " +
+        //            "Text_Entry NVARCHAR(2048) NULL)";
 
-                var createTable = new SqliteCommand(tableCommand, db);
+        //        var createTable = new SqliteCommand(tableCommand, db);
 
-                createTable.ExecuteReader();
-                db.Close();
-            }
-        }
+        //        createTable.ExecuteReader();
+        //        db.Close();
+        //    }
+        //}
 
         public static void AddUser(string username, string password)
         {
@@ -37,10 +38,9 @@ namespace WordsCup.DB
             {
                 db.Open();
 
-                var insertCommand = new SqliteCommand();
+                SqliteCommand insertCommand = new SqliteCommand();
                 insertCommand.Connection = db;
 
-                // Use parameterized query to prevent SQL injection attacks
                 insertCommand.CommandText = "INSERT INTO Users (login, password) VALUES (@Username, @Password);";
                 insertCommand.Parameters.AddWithValue("@Username", username);
                 insertCommand.Parameters.AddWithValue("@Password", password);
@@ -55,7 +55,7 @@ namespace WordsCup.DB
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
                 db.Open();
-                var selectCommand = new SqliteCommand
+                SqliteCommand selectCommand = new SqliteCommand
                     ("SELECT COUNT(*) FROM Users WHERE login = @Username AND password = @Password", db);
                 selectCommand.Parameters.AddWithValue("@Username", username);
                 selectCommand.Parameters.AddWithValue("@Password", password);
@@ -67,13 +67,42 @@ namespace WordsCup.DB
             }
         }
 
+        public static void UpdateUser(User user)
+        {
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand updateCommand = new SqliteCommand
+                    ("UPDATE Users SET balance = @Balance, saveWord = @SaveWord WHERE login = @Login", db);
+                updateCommand.Parameters.AddWithValue("@Login", user.login);
+                updateCommand.Parameters.AddWithValue("@Balance", user.balance);
+
+                ////SqliteParameter loginParameter = new SqliteParameter("@Login", DbType.String);
+                ////loginParameter.Value = (object)user.login ?? DBNull.Value;
+                ////updateCommand.Parameters.Add(loginParameter);
+
+                //SqliteParameter balanceParameter = new SqliteParameter("@Balance", DbType.Int32);
+                //balanceParameter.Value = (object)user.balance ?? DBNull.Value;
+                //updateCommand.Parameters.Add(balanceParameter);
+
+                SqliteParameter saveWordParameter = new SqliteParameter("@SaveWord", DbType.String);
+                saveWordParameter.Value = (object)user.saveWord ?? DBNull.Value;
+                updateCommand.Parameters.Add(saveWordParameter);
+
+                updateCommand.ExecuteNonQuery();
+
+                db.Close();
+            }
+        }
+
         public static User GetUser(string username)
         {
             using (var db = new SqliteConnection($"Filename={dbpath}"))
             {
                 db.Open();
 
-                var selectCommand = new SqliteCommand
+                SqliteCommand selectCommand = new SqliteCommand
                     ("SELECT * FROM Users WHERE login = @Username", db);
                 selectCommand.Parameters.AddWithValue("@Username", username);
 
@@ -81,28 +110,23 @@ namespace WordsCup.DB
                 {
                     if (reader.Read())
                     {
-                        var user = new User
+                        User user = new User
                         {
                             id = reader.GetInt32(0),
                             login = reader.GetString(1),
                             password = reader.GetString(2),
                             balance = reader.GetInt32(3),
-                            saveWord = reader.IsDBNull(4) ? null : reader.GetString(4) // проверяем, является ли значение NULL
+                            saveWord = reader.IsDBNull(4) ? null : reader.GetString(4)
                         };
-
                         db.Close();
 
                         return user;
                     }
                 }
-
                 db.Close();
             }
-
             return null;
         }
-
-
 
     }
 }

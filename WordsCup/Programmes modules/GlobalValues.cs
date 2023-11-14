@@ -26,7 +26,6 @@ namespace WordsCup
 
         public static int successPoint = 1;
 
-
         public static string url = "https://habr.com/ru/sandbox/";
 
         public static HtmlDocument doc {  get; set; }
@@ -41,14 +40,15 @@ namespace WordsCup
                 int num = rnd.Next(1000, 203644);
 
                 GlobalValues.doc = new HtmlWeb().Load(url + num);
+                //GlobalValues.doc = new HtmlWeb().Load("");
 
-                foreach (var node in GlobalValues.doc.DocumentNode.DescendantsAndSelf())
-                {
-                    if (node.NodeType == HtmlNodeType.Element)
-                    {
-                        node.Attributes.RemoveAll();
-                    }
-                }
+                //foreach (var node in GlobalValues.doc.DocumentNode.DescendantsAndSelf())
+                //{
+                //    if (node.NodeType == HtmlNodeType.Element)
+                //    {
+                //        node.Attributes.RemoveAll();
+                //    }
+                //}
             }
             catch (WebException e)
             {

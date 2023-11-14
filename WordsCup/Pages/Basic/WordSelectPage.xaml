@@ -1,4 +1,5 @@
-﻿<Window x:Class="WordsCup.WordSelectPage"
+﻿<Window x:Name="Win"
+    x:Class="WordsCup.WordSelectPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +7,7 @@
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
         Title="WordsCup" Height="500" Width="900"
-        MinHeight="500" MinWidth="450">
+        MinHeight="500" MinWidth="450" Closing="Window_Closing">
     <Grid Background="#BBBBBB">
         <Border HorizontalAlignment="Right" VerticalAlignment="Top" Background="#0D0D0D" Height="50" CornerRadius="0 0 0 10">
             <TextBlock x:Name="Balance" Foreground="#F2F2F2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24px" FontWeight="Bold" Margin="15 0 15 0"> 

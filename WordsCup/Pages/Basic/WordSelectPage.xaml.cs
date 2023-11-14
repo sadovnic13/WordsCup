@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WordsCup.DB;
 using WordsCup.Pages.Additional;
 using WordsCup.Pages.Basic;
 
@@ -39,6 +40,8 @@ namespace WordsCup
         
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.IsEnabled = false;
+
             BlurEffect bE = new BlurEffect();
             bE.Radius = 5;
             Effect = bE;
@@ -64,6 +67,8 @@ namespace WordsCup
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
+            DataAccess.UpdateUser(GlobalValues.user);
+
             LoginPage lP = new LoginPage();
             lP.Left = this.Left;
             lP.Top = this.Top;
@@ -80,6 +85,11 @@ namespace WordsCup
             iP.Owner = this;
             iP.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             iP.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DataAccess.UpdateUser(GlobalValues.user);
         }
     }
 }

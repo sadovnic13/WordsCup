@@ -54,7 +54,7 @@ namespace WordsCup
 
                     while (true)
                     {
-                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[1]/div[2]/main/div/div/div/div/div/div[2]/article/div[2]/div[2]/div[1]/div/div");
+                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@xmlns='http://www.w3.org/1999/xhtml']");
 
                         if (bodyContent == null)
                         {
@@ -141,9 +141,14 @@ namespace WordsCup
                         SuccessPage sp;
                         var selectionText = (string)selectionRange.text;
                             
-                        if (selectionText != null && selectionText.Trim() == GlobalValues.user.saveWord)
+                        //if (selectionText != null && selectionText.Trim() == GlobalValues.user.saveWord)
+                        if (selectionText != null && selectionText.Trim() == "о")
                         {
                             sp = new SuccessPage("success.png");
+                            sp.Owner = this;
+                            sp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            sp.ShowDialog();
+
                             GlobalValues.user.balance += GlobalValues.successPoint;
                             GlobalValues.user.saveWord = null;
 
@@ -159,10 +164,11 @@ namespace WordsCup
                         else
                         {
                             sp = new SuccessPage("fail.png");
+                            sp.Owner = this;
+                            sp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                            sp.ShowDialog();
                         }
-                        sp.Owner = this;
-                        sp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                        sp.ShowDialog();                        
+                                                
                     }
                 }
             }
