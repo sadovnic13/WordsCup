@@ -26,37 +26,38 @@ namespace WordsCup
 
         public static int successPoint = 1;
 
-        public static string url = "https://habr.com/ru/sandbox/";
+        public static string url = "https://studfile.net/preview/";
 
         public static HtmlDocument doc {  get; set; }
         
         public static string userDefinedText { get; set; }
 
-        public static void GeneratePage()
+        public static void GeneratePage(HtmlDocument doc)
         {
             try
             {
                 Random rnd = new Random();
-                int num = rnd.Next(1000, 203644);
+                int num = rnd.Next(5582384, 17166791);
+                int page = rnd.Next(2, 15);
 
-                GlobalValues.doc = new HtmlWeb().Load(url + num);
+                GlobalValues.doc = new HtmlWeb().Load(url + num + "/page:" + page);
                 //GlobalValues.doc = new HtmlWeb().Load("");
 
-                var nodesToRemove = GlobalValues.doc.DocumentNode.DescendantsAndSelf()
-     .Where(n => n.NodeType == HtmlNodeType.Element && (n.Name == "a" || n.Name == "img" || n.Name == "figcaption"))
-     .ToList();
-                foreach (var node in GlobalValues.doc.DocumentNode.DescendantsAndSelf())
-                {
-                    if (node.NodeType == HtmlNodeType.Element)
-                    {
-                        node.Attributes.Remove("class");
-                    }
-                }
+     //           var nodesToRemove = GlobalValues.doc.DocumentNode.DescendantsAndSelf()
+     //.Where(n => n.NodeType == HtmlNodeType.Element && (n.Name == "a" || n.Name == "img" || n.Name == "figcaption"))
+     //.ToList();
+     //           foreach (var node in GlobalValues.doc.DocumentNode.DescendantsAndSelf())
+     //           {
+     //               if (node.NodeType == HtmlNodeType.Element)
+     //               {
+     //                   node.Attributes.Remove("class");
+     //               }
+     //           }
 
-                foreach (var node in nodesToRemove)
-                {
-                    node.Remove();
-                }
+     //           foreach (var node in nodesToRemove)
+     //           {
+     //               node.Remove();
+     //           }
 
 
 

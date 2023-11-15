@@ -43,27 +43,12 @@ namespace WordsCup
             {
                 var htmlContent = await Task.Run(async () =>
                 {
-                    GlobalValues.GeneratePage();
-
-                    //var nodesToRemove = GlobalValues.doc.DocumentNode.SelectNodes("//img"); // Поиск всех тегов <img>
-
-                    //if (nodesToRemove != null)
-                    //{
-                    //    foreach (var imgNode in nodesToRemove)
-                    //    {
-                    //        imgNode.Remove(); // Удаление каждого тега <img>
-                    //    }
-                    //}
-                    //var bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='mw-parser-output']");
-
-                    //var nodes = bodyContent.SelectNodes("//h2|//p|//ul");
-                    //
+                    GlobalValues.GeneratePage();                    
                     HtmlNode bodyContent;
-
 
                     while (true)
                     {
-                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@xmlns='http://www.w3.org/1999/xhtml']");
+                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
 
                         if (bodyContent == null)
                         {
