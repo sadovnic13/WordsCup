@@ -32,7 +32,9 @@
     <None Remove="Images\System_icons\bulb.png" />
     <None Remove="Images\System_icons\exit.png" />
     <None Remove="Images\System_icons\fail.png" />
+    <None Remove="Images\System_icons\line-spacing.png" />
     <None Remove="Images\System_icons\login.png" />
+    <None Remove="Images\System_icons\mark.png" />
     <None Remove="Images\System_icons\password.png" />
     <None Remove="Images\System_icons\success.png" />
   </ItemGroup>
@@ -127,7 +129,13 @@
     <Resource Include="Images\System_icons\fail.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\System_icons\line-spacing.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\System_icons\login.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\System_icons\mark.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\System_icons\password.png">

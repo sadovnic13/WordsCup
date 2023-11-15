@@ -45,7 +45,6 @@ namespace WordsCup
                 {
                     GlobalValues.GeneratePage();                    
                     HtmlNode bodyContent;
-
                     while (true)
                     {
                         bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
@@ -76,8 +75,11 @@ namespace WordsCup
                 </body>
                 </html>";
                 TB.NavigateToString(html);
+
+                
+
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 await ViewTextBrowser();
             }

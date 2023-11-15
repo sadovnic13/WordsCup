@@ -46,15 +46,44 @@ namespace WordsCup
             bE.Radius = 5;
             Effect = bE;
 
-            DownloadAnimation dialog = new DownloadAnimation();
             this.ResizeMode = ResizeMode.NoResize;
+            DownloadAnimation dialog = new DownloadAnimation();
 
             dialog.Owner = this;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.Show();
 
-            SearchPage sP = await SearchPage.CreateAsync();
+            string htmlText = await Task.Run(async () =>
+            {
+                GlobalValues.GeneratePage();
+                HtmlNode bodyContent;
+                while (true)
+                {
+                    bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
 
+                    if (bodyContent == null)
+                    {
+                        GlobalValues.GeneratePage();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                var nodes = bodyContent.ChildNodes;
+
+                // Объединить HTML всех выбранных узлов в одну строку
+                var htmlString = string.Join("\n", nodes.Select(node => node.InnerHtml));
+
+                // Разбить строку на слова
+                var words = htmlString.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
+                Random random = new Random();
+                return words[random.Next(0, words.Length)];
+            });
+            GlobalValues.user.saveWord = htmlText;
+            
+            SearchPage sP = await SearchPage.CreateAsync();
             sP.Left = this.Left;
             sP.Top = this.Top;
             sP.Width = this.ActualWidth;
@@ -90,6 +119,32 @@ namespace WordsCup
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             DataAccess.UpdateUser(GlobalValues.user);
+        }
+
+        private async void Continue_Click(object sender, RoutedEventArgs e)
+        {
+            this.IsEnabled = false;
+
+            BlurEffect bE = new BlurEffect();
+            bE.Radius = 5;
+            Effect = bE;
+
+            this.ResizeMode = ResizeMode.NoResize;
+            DownloadAnimation dialog = new DownloadAnimation();
+
+            dialog.Owner = this;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Show();
+
+            SearchPage sP = await SearchPage.CreateAsync();
+            sP.Left = this.Left;
+            sP.Top = this.Top;
+            sP.Width = this.ActualWidth;
+            sP.Height = this.ActualHeight;
+            sP.WindowState = this.WindowState;
+
+            sP.Show();
+            this.Close();
         }
     }
 }

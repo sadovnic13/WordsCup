@@ -28,7 +28,7 @@
             </DockPanel>
 
             <DockPanel>
-                <Button x:Name="Continue" DockPanel.Dock="Left" Height="40" Width="225" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" FontWeight="Bold" Margin="10 40 30 20" >
+                <Button x:Name="Continue" DockPanel.Dock="Left" Height="40" Width="225" VerticalAlignment="Bottom"  Background="#A68256" Foreground="#F2F2F2" FontSize="24px" FontWeight="Bold" Margin="10 40 30 20" Click="Continue_Click" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >

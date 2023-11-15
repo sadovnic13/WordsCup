@@ -9,7 +9,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"    
-        Title="InformationalPage" Height="450" Width="500">
+        Title="InformationalPage" Height="450" Width="800">
     <Border CornerRadius="10" Background="#F2F2F2" BorderBrush="#0D0D0D" BorderThickness="2">
         <Grid Margin="30 20" >
             <Grid VerticalAlignment="Center">

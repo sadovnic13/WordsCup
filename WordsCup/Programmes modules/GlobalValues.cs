@@ -24,7 +24,7 @@ namespace WordsCup
     {
         public static User user;
 
-        public static int successPoint = 1;
+        public static int successPoint = 0;
 
         public static string url = "https://studfile.net/preview/";
 
@@ -32,12 +32,12 @@ namespace WordsCup
         
         public static string userDefinedText { get; set; }
 
-        public static void GeneratePage(HtmlDocument doc)
+        public static void GeneratePage()
         {
             try
             {
                 Random rnd = new Random();
-                int num = rnd.Next(5582384, 17166791);
+                int num = rnd.Next(3393, 20020019);
                 int page = rnd.Next(2, 15);
 
                 GlobalValues.doc = new HtmlWeb().Load(url + num + "/page:" + page);
