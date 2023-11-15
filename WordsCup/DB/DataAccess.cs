@@ -74,22 +74,15 @@ namespace WordsCup.DB
                 db.Open();
 
                 SqliteCommand updateCommand = new SqliteCommand
-                    ("UPDATE Users SET balance = @Balance, saveWord = @SaveWord WHERE login = @Login", db);
+                    ("UPDATE Users SET balance = @Balance, saveWord = @SaveWord, difficulty = @Difficulty WHERE login = @Login", db);
                 updateCommand.Parameters.AddWithValue("@Login", user.login);
                 updateCommand.Parameters.AddWithValue("@Balance", user.balance);
-
-                ////SqliteParameter loginParameter = new SqliteParameter("@Login", DbType.String);
-                ////loginParameter.Value = (object)user.login ?? DBNull.Value;
-                ////updateCommand.Parameters.Add(loginParameter);
-
-                //SqliteParameter balanceParameter = new SqliteParameter("@Balance", DbType.Int32);
-                //balanceParameter.Value = (object)user.balance ?? DBNull.Value;
-                //updateCommand.Parameters.Add(balanceParameter);
 
                 SqliteParameter saveWordParameter = new SqliteParameter("@SaveWord", DbType.String);
                 saveWordParameter.Value = (object)user.saveWord ?? DBNull.Value;
                 updateCommand.Parameters.Add(saveWordParameter);
 
+                updateCommand.Parameters.AddWithValue("@Difficulty", user.successPoint);
                 updateCommand.ExecuteNonQuery();
 
                 db.Close();
@@ -116,7 +109,8 @@ namespace WordsCup.DB
                             login = reader.GetString(1),
                             password = reader.GetString(2),
                             balance = reader.GetInt32(3),
-                            saveWord = reader.IsDBNull(4) ? null : reader.GetString(4)
+                            saveWord = reader.IsDBNull(4) ? null : reader.GetString(4),
+                            successPoint = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
                         };
                         db.Close();
 

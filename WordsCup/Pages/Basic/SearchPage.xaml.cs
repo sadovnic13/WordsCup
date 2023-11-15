@@ -145,7 +145,7 @@ namespace WordsCup
                             sp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             sp.ShowDialog();
 
-                            GlobalValues.user.balance += GlobalValues.successPoint;
+                            GlobalValues.user.balance += GlobalValues.user.successPoint;
                             GlobalValues.user.saveWord = null;
 
                             WordSelectPage ws = new WordSelectPage();

@@ -40,8 +40,17 @@ namespace WordsCup
         
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (Difficulty.SelectedIndex == -1)
+            {
+                SuccessPage sp = new SuccessPage("fail.png");
+                sp.Owner = this;
+                sp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                sp.ShowDialog();
+                return;
+            }
             this.IsEnabled = false;
-
+            
+            GlobalValues.user.successPoint = Difficulty.SelectedIndex + 1;
             BlurEffect bE = new BlurEffect();
             bE.Radius = 5;
             Effect = bE;

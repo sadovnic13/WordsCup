@@ -19,7 +19,7 @@
             <DockPanel Margin="0 20 0 0">
                 <Label DockPanel.Dock="Left" Content="Сложность:" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="32px" Width="200" FontWeight="DemiBold" FontFamily="Gilroy UltraLight"/>
 
-                <ComboBox DockPanel.Dock="Right" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="300" Height="50">
+                <ComboBox x:Name="Difficulty" DockPanel.Dock="Right" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="300" Height="50">
 
                     <TextBlock>Легко</TextBlock>
                     <TextBlock>Средне</TextBlock>

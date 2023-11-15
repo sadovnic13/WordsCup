@@ -18,13 +18,15 @@ namespace WordsCup
         public string password { get; set; }
         public int balance { get; set; }
         public string saveWord { get; set; }
+
+        public int successPoint { get; set; }
     }
 
     class GlobalValues
     {
         public static User user;
 
-        public static int successPoint = 0;
+        
 
         public static string url = "https://studfile.net/preview/";
 
