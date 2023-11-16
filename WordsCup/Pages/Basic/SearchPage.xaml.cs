@@ -1,10 +1,12 @@
 ﻿using HtmlAgilityPack;
 using mshtml;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,7 +15,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using WordsCup.DB;
 using WordsCup.Pages.Additional;
+using WordsCup.Programmes_modules;
 
 namespace WordsCup
 {
@@ -28,62 +32,17 @@ namespace WordsCup
 
             Word.Text = GlobalValues.user.saveWord;
             Balance.Text += " " + GlobalValues.user.balance;
+
+            TB.NavigateToString(GlobalValues.doc);
         }
 
         public static async Task<SearchPage> CreateAsync()
         {
             SearchPage sP = new SearchPage();
-            await sP.ViewTextBrowser();
+            GlobalValues.doc = GlobalValues.tempDoc;
+            GlobalValues.tempDoc = await GeneratePages.ViewTextBrowser();
             return sP;
-        }
-
-        private async Task ViewTextBrowser()
-        {
-            try
-            {
-                var htmlContent = await Task.Run(async () =>
-                {
-                    GlobalValues.GeneratePage();                    
-                    HtmlNode bodyContent;
-                    while (true)
-                    {
-                        bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
-
-                        if (bodyContent == null)
-                        {
-                            GlobalValues.GeneratePage();
-                        }
-                        else
-                        {
-                            break;
-                        } 
-                    }
-                    var nodes = bodyContent.ChildNodes;
-
-                    // Объединить HTML всех выбранных узлов в одну строку
-                    return string.Join("\n", nodes.Select(node => node.OuterHtml));
-                });
-
-                string html = $@"
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset='UTF-8'>
-                </head>
-                <body>
-                    {htmlContent}
-                </body>
-                </html>";
-                TB.NavigateToString(html);
-
-                
-
-            }
-            catch (NullReferenceException)
-            {
-                await ViewTextBrowser();
-            }
-        }
+        }        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -104,14 +63,15 @@ namespace WordsCup
             Effect = bE;
 
             DownloadAnimation dialog = new DownloadAnimation();
-
             dialog.Owner = this;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             this.ResizeMode = ResizeMode.NoResize;
             this.IsEnabled = false;
             TB.Visibility = Visibility.Hidden;
             dialog.Show();
-            await ViewTextBrowser();
+
+            GlobalValues.doc = GlobalValues.tempDoc;
+            TB.NavigateToString(GlobalValues.doc);
 
             dialog.Close();
 
@@ -121,6 +81,7 @@ namespace WordsCup
             bE.Radius = 0;
             Effect = bE;
                 
+            GlobalValues.tempDoc = await GeneratePages.ViewTextBrowser();
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
@@ -137,8 +98,8 @@ namespace WordsCup
                         SuccessPage sp;
                         var selectionText = (string)selectionRange.text;
                             
-                        //if (selectionText != null && selectionText.Trim() == GlobalValues.user.saveWord)
-                        if (selectionText != null && selectionText.Trim() == "о")
+                        //if (selectionText != null && selectionText.Trim() == "о")
+                        if (selectionText != null && selectionText.Trim() == GlobalValues.user.saveWord)
                         {
                             sp = new SuccessPage("success.png");
                             sp.Owner = this;
@@ -176,6 +137,11 @@ namespace WordsCup
             iP.Owner = this;
             iP.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             iP.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DataAccess.UpdateUser(GlobalValues.user);
         }
     }
 }

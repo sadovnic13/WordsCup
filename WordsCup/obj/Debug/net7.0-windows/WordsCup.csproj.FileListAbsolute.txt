@@ -121,3 +121,4 @@ D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\Microsoft.E
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\bin\Debug\net7.0-windows\Mono.TextTemplating.dll
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\Pages\Additional\InformationalPage.g.cs
 D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\Pages\Additional\InformationalPage.baml
+D:\German\C#\Projects\WPF\WordsCup\WordsCup\obj\Debug\net7.0-windows\WordsCup.sourcelink.json

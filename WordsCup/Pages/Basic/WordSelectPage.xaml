@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WordsCup"
         mc:Ignorable="d"
         Title="WordsCup" Height="500" Width="900"
-        MinHeight="500" MinWidth="450" Closing="Window_Closing">
+        MinHeight="500" MinWidth="450" Closing="Window_Closing" Initialized="Win_Initialized">
     <Grid Background="#BBBBBB">
         <Border HorizontalAlignment="Right" VerticalAlignment="Top" Background="#0D0D0D" Height="50" CornerRadius="0 0 0 10">
             <TextBlock x:Name="Balance" Foreground="#F2F2F2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24px" FontWeight="Bold" Margin="15 0 15 0"> 

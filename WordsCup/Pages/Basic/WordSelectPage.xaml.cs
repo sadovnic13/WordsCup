@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,6 +19,7 @@ using System.Windows.Shapes;
 using WordsCup.DB;
 using WordsCup.Pages.Additional;
 using WordsCup.Pages.Basic;
+using WordsCup.Programmes_modules;
 
 namespace WordsCup
 {
@@ -37,7 +39,12 @@ namespace WordsCup
             Balance.Text += " " + GlobalValues.user.balance;
         }
 
-        
+        private async void Win_Initialized(object sender, EventArgs e)
+        {
+            GlobalValues.doc = await GeneratePages.ViewTextBrowser();
+            GlobalValues.tempDoc = await GeneratePages.ViewTextBrowser();
+        }
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (Difficulty.SelectedIndex == -1)
@@ -62,36 +69,50 @@ namespace WordsCup
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.Show();
 
-            string htmlText = await Task.Run(async () =>
-            {
-                GlobalValues.GeneratePage();
-                HtmlNode bodyContent;
-                while (true)
-                {
-                    bodyContent = GlobalValues.doc.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
+            //string htmlText = await Task.Run(async () =>
+            //{
+            //    HtmlDocument page = await GeneratePages.GeneratePage();
+            //    HtmlNode bodyContent;
+            //    while (true)
+            //    {
+            //        bodyContent = page.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
 
-                    if (bodyContent == null)
-                    {
-                        GlobalValues.GeneratePage();
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                var nodes = bodyContent.ChildNodes;
+            //        if (bodyContent == null)
+            //        {
+            //            page = await GeneratePages.GeneratePage();
+            //        }
+            //        else
+            //        {
+            //            break;
+            //        }
+            //    }
+            //    var nodes = bodyContent.ChildNodes;
 
-                // Объединить HTML всех выбранных узлов в одну строку
-                var htmlString = string.Join("\n", nodes.Select(node => node.InnerHtml));
+            //    // Объединить HTML всех выбранных узлов в одну строку
+            //    var htmlString = string.Join("\n", nodes.Select(node => node.InnerHtml));
 
-                // Разбить строку на слова
-                var words = htmlString.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            //    // Удалить HTML-теги и знаки препинания
+            //    var cleanString = Regex.Replace(htmlString, "<.*?>", string.Empty);
+            //    cleanString = Regex.Replace(cleanString, @"[^\w\s]", string.Empty);
 
-                Random random = new Random();
-                return words[random.Next(0, words.Length)];
-            });
-            GlobalValues.user.saveWord = htmlText;
-            
+            //    // Разбить строку на слова
+            //    string[] words = cleanString.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
+            //    Random random = new Random();
+            //    return words[random.Next(0, words.Length)].ToLower();
+            //});
+
+            var cleanString = Regex.Replace(GlobalValues.doc, "<.*?>", string.Empty);
+            cleanString = Regex.Replace(cleanString, @"[^\w\s]", string.Empty);
+            cleanString = Regex.Replace(cleanString, @"\d", string.Empty);
+
+            // Разбить строку на слова
+            string[] words = cleanString.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Random random = new Random();             
+
+            GlobalValues.user.saveWord = words[random.Next(0, words.Length)].ToLower();
+
             SearchPage sP = await SearchPage.CreateAsync();
             sP.Left = this.Left;
             sP.Top = this.Top;
@@ -155,5 +176,7 @@ namespace WordsCup
             sP.Show();
             this.Close();
         }
+
+        
     }
 }
