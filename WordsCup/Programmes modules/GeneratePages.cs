@@ -16,11 +16,11 @@ namespace WordsCup.Programmes_modules
             try
             {
                 Random rnd = new Random();
-                int num = rnd.Next(3393, 20020019);
+                int num = rnd.Next(309331, 309331);
                 int page = rnd.Next(2, 15);
 
-                //return await Task.Run(() => new HtmlWeb().Load("https://studfile.net/preview/406275/"));
-                return await Task.Run(() => new HtmlWeb().Load(GlobalValues.url + num + "/page:" + page));
+                return await Task.Run(() => new HtmlWeb().Load("https://author.today/reader/309231"));
+                //return await Task.Run(() => new HtmlWeb().Load(GlobalValues.url + num));
             }
             catch (WebException)
             {
@@ -46,7 +46,7 @@ namespace WordsCup.Programmes_modules
                             return null;
                         }
 
-                        bodyContent = doc.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
+                        bodyContent = doc.DocumentNode.SelectSingleNode("//div[@class='text-container']");
 
                         if (bodyContent != null)
                         {

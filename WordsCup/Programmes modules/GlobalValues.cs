@@ -26,7 +26,7 @@ namespace WordsCup
     {
         public static User user;        
 
-        public static string url = "https://studfile.net/preview/";
+        public static string url = "https://author.today/reader/";
 
         public static string doc {  get; set; }
         public static string tempDoc {  get; set; }

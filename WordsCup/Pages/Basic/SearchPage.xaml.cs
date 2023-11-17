@@ -32,8 +32,8 @@ namespace WordsCup
 
             Word.Text = GlobalValues.user.saveWord;
             Balance.Text += " " + GlobalValues.user.balance;
-
             TB.NavigateToString(GlobalValues.doc);
+
         }
 
         public static async Task<SearchPage> CreateAsync()
@@ -99,7 +99,7 @@ namespace WordsCup
                         var selectionText = (string)selectionRange.text;
                             
                         //if (selectionText != null && selectionText.Trim() == "о")
-                        if (selectionText != null && selectionText.Trim() == GlobalValues.user.saveWord)
+                        if (selectionText != null && selectionText.Trim().ToLower() == GlobalValues.user.saveWord)
                         {
                             sp = new SuccessPage("success.png");
                             sp.Owner = this;

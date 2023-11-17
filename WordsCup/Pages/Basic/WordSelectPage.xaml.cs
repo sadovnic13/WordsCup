@@ -69,39 +69,12 @@ namespace WordsCup
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.Show();
 
-            //string htmlText = await Task.Run(async () =>
-            //{
-            //    HtmlDocument page = await GeneratePages.GeneratePage();
-            //    HtmlNode bodyContent;
-            //    while (true)
-            //    {
-            //        bodyContent = page.DocumentNode.SelectSingleNode("//div[@class='pdf_holder']");
-
-            //        if (bodyContent == null)
-            //        {
-            //            page = await GeneratePages.GeneratePage();
-            //        }
-            //        else
-            //        {
-            //            break;
-            //        }
-            //    }
-            //    var nodes = bodyContent.ChildNodes;
-
-            //    // Объединить HTML всех выбранных узлов в одну строку
-            //    var htmlString = string.Join("\n", nodes.Select(node => node.InnerHtml));
-
-            //    // Удалить HTML-теги и знаки препинания
-            //    var cleanString = Regex.Replace(htmlString, "<.*?>", string.Empty);
-            //    cleanString = Regex.Replace(cleanString, @"[^\w\s]", string.Empty);
-
-            //    // Разбить строку на слова
-            //    string[] words = cleanString.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-
-            //    Random random = new Random();
-            //    return words[random.Next(0, words.Length)].ToLower();
-            //});
-
+            if(GlobalValues.doc == null)
+            {
+                GlobalValues.doc = await GeneratePages.ViewTextBrowser();
+                GlobalValues.tempDoc = await GeneratePages.ViewTextBrowser();
+            }
+            
             var cleanString = Regex.Replace(GlobalValues.doc, "<.*?>", string.Empty);
             cleanString = Regex.Replace(cleanString, @"[^\w\s]", string.Empty);
             cleanString = Regex.Replace(cleanString, @"\d", string.Empty);
@@ -109,9 +82,30 @@ namespace WordsCup
             // Разбить строку на слова
             string[] words = cleanString.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
-            Random random = new Random();             
+            Random random = new Random();
+            string selectedWord = string.Empty;
 
-            GlobalValues.user.saveWord = words[random.Next(0, words.Length)].ToLower();
+            // Предположим, что comboBox.SelectedIndex возвращает выбранный пункт в ComboBox
+            switch (Difficulty.SelectedIndex)
+            {
+                case 0:
+                    words = words.Where(word => word.Length >= 3 && word.Length <= 4).ToArray();
+                    break;
+                case 1:
+                    words = words.Where(word => word.Length >= 5 && word.Length <= 7).ToArray();
+                    break;
+                case 2:
+                    words = words.Where(word => word.Length >= 7 && word.Length <= 9).ToArray();
+                    break;
+            }
+
+            if (words.Length > 0)
+            {
+                selectedWord = words[random.Next(0, words.Length)].ToLower();
+            }
+
+            GlobalValues.user.saveWord = selectedWord;
+
 
             SearchPage sP = await SearchPage.CreateAsync();
             sP.Left = this.Left;
@@ -166,15 +160,30 @@ namespace WordsCup
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.Show();
 
-            SearchPage sP = await SearchPage.CreateAsync();
-            sP.Left = this.Left;
-            sP.Top = this.Top;
-            sP.Width = this.ActualWidth;
-            sP.Height = this.ActualHeight;
-            sP.WindowState = this.WindowState;
-
-            sP.Show();
-            this.Close();
+            SearchPage sP = null;
+            if (GlobalValues.doc == null)
+            {
+                sP = await SearchPage.CreateAsync();
+                sP.Left = this.Left;
+                sP.Top = this.Top;
+                sP.Width = this.ActualWidth;
+                sP.Height = this.ActualHeight;
+                sP.WindowState = this.WindowState;
+                sP.Show();
+                this.Close();
+            }
+            else
+            {
+                sP = new SearchPage();
+                sP.Left = this.Left;
+                sP.Top = this.Top;
+                sP.Width = this.ActualWidth;
+                sP.Height = this.ActualHeight;
+                sP.WindowState = this.WindowState;
+                sP.Show();
+                this.Close();
+            }
+            
         }
 
         

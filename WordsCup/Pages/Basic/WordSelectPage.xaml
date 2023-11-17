@@ -39,7 +39,7 @@
                     Продолжить
                 </Button>
 
-                <Button Height="40" Width="225" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" FontWeight="Bold" Margin="0 40 0 20" >
+                <Button x:Name="Start" Height="40" Width="225" VerticalAlignment="Bottom" Click="Button_Click" Background="#A68256" Foreground="#F2F2F2" FontSize="24px" FontWeight="Bold" Margin="0 40 0 20" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="10" >
