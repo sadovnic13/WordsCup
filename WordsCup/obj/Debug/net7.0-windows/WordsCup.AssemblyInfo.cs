@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WordsCup")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51a4a6cb1ef8afb7629d5ad4d448be912a88b116")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WordsCup")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WordsCup")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
